@@ -104,4 +104,4 @@ export async function main(ns) {
 	} else {
 		ns.tprint(`\nERROR: Hack @${TARGET_SERVER} from ${HOST} failed`);
 	}
-}
+}	
