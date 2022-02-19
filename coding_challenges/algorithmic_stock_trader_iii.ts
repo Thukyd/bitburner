@@ -48,7 +48,7 @@ console.log(indexOfMax)
 function biggestProfit(stockHistory:number[]) {
     /// create a hash structure to store {index, value}; 
         // see also: https://www.youtube.com/watch?v=F95z5Wxd9ks
-    let result = stockHistory.map(value, index =>  (value, index));
+    let result = stockHistory.map((value, index) =>  (value, index));
     console.log(result)
         
     
