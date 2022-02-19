@@ -35,11 +35,18 @@ let indexOfMax = stockPrices.indexOf(42);
 console.log(indexOfMax);
 ///////////
 function biggestProfit(stockHistory) {
-    /// create a new structure {index, value}; 
-    // new Map( stockHistory.indexOf(...stockHistory), ...stockHistory)
+    /// create a hash structure to store {index, value}; 
+        // see also: https://www.youtube.com/watch?v=F95z5Wxd9ks
+    let result = stockHistory.map(x => (x, index));
+    console.log(result)
+        
+    
+  
     // sort by value
     // check the longest path
-    // check if index of low_price is smaller than index of high_price => if yes => this transaction ist possible
-    return 1;
-}
-console.log(biggestProfit(stockPrices));
+        // check if index of low_price is smaller than index of high_price => if yes => this transaction ist possible
+
+    return 1
+} 
+
+console.log(biggestProfit(stockPrices))

@@ -39,12 +39,19 @@ console.log(findMin(stockPrices))
 let indexOfMax = stockPrices.indexOf(42);
 
 console.log(indexOfMax)
+
+
+
 ///////////
 
 
 function biggestProfit(stockHistory:number[]) {
-    /// create a new structure {index, value}; 
-    // new Map( stockHistory.indexOf(...stockHistory), ...stockHistory)
+    /// create a hash structure to store {index, value}; 
+        // see also: https://www.youtube.com/watch?v=F95z5Wxd9ks
+    let result = stockHistory.map(value, index =>  (value, index));
+    console.log(result)
+        
+    
   
     // sort by value
     // check the longest path
@@ -54,3 +61,4 @@ function biggestProfit(stockHistory:number[]) {
 } 
 
 console.log(biggestProfit(stockPrices))
+
