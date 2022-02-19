@@ -76,7 +76,7 @@ export async function main(ns) {
 			// b) copies scripts to target
 			await moveScripts(ns, spreadServer); // imported function
 			// exec this script
-			let targetAndConnections = [TARGET_SERVER, ...knownConnections]
+			let targetAndConnections = [...TARGET_SERVER, ...knownConnections]
 			ns.exec("spread_att_specific.js", spreadServer, 1, ...targetAndConnections);
 			
 		}else{ // c) if not root - skipe
