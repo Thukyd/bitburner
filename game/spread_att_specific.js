@@ -105,8 +105,3 @@ export async function main(ns) {
 		ns.tprint(`\nERROR: Hack @${TARGET_SERVER} from ${HOST} failed`);
 	}
 }
-
-
-
-// TODO: Error TARGET_SERVER STIMM NICHT => Ich attackier auf einnaml RANDOM Seriver
-// VERMUTUNG => Die Arrays neu zu sortieren bringt Chaos rein
