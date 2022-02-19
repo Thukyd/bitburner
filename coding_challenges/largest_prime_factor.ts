@@ -57,13 +57,9 @@ function primeFactor (num:number) {
     return "ERROR";
 }
 
-
-
 //console.log(isPrime(28))
 //console.log(isPrime(19))
 //console.log(isPrime(7))
-
-
 
 let examplePrimeFactor1 = 76 // = 2 * 2 * 19 = 2^2 * 19
 let examplePrimeFactor2 = 21 // = 3 * 7
@@ -75,40 +71,5 @@ console.log(`The largest prime factor for ${21} is ${primeFactor(21)}`)
 console.log(`The largest prime factor for ${76} is ${primeFactor(76)}`)
 console.log(`The largest prime factor for ${705067794} is ${primeFactor(705067794)}`)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-Further information: 
-
-    Suche einen Primfaktor von 76
-
-    Ein möglicher Primfaktor ist 2 . Teile durch 2 .
-
-Tipp: Wähle bei einer geraden Zahl 22 als Primfaktor.
-
-    76:2=3876:2=38
-Suche einen Primfaktor von 3838 .
-
-Ein möglicher Primfaktor ist 22 . Teile durch 22 .
-
-38:2=1938:2=19
-1919 ist bereits eine Primzahl.
-
-Somit ist man fertig. Die Primfaktorzerlegung ist das Produkt der Primfaktoren.
-*/
 
 
