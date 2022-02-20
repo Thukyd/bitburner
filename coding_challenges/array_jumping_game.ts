@@ -13,3 +13,6 @@ Each element in the array represents your MAXIMUM jump length at that position. 
 Assuming you are initially positioned at the start of the array, determine whether you are able to reach the last index.
 */
 
+let arr = [1,0,6]
+
+// no!
