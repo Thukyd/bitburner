@@ -23,11 +23,11 @@ let stockPricesI = [43,65,133,117,15,102,17,187,20,84,57,129,123,150,69,108,183,
 function algoTraderI (prices:number[]) {
     let maxProfit = 0;
 
-    // sort first
+    // sort frome min to max price
     let sortedPrices =  prices.sort((a, b) => (a > b) ? 1 : -1);
-    // create Array to manipulate
+    // create array for direct manipulation
     let checkArr = [...sortedPrices]; 
-    // check loop from min to max
+    // check max profit from X to max_price
     for (let i = 0; i < sortedPrices.length; i++) {
         let min = checkArr[i]
         let max = checkArr[checkArr.length - 1]
@@ -38,6 +38,8 @@ function algoTraderI (prices:number[]) {
         }
     }
     return maxProfit
+
+    //TODO: add min_price to y & x-price to y-price if they are more profitable
 }
 
 console.log(algoTraderI(stockPricesI))
