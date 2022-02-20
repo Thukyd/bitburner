@@ -16,6 +16,7 @@ let stockPricesI = [43,65,133,117,15,102,17,187,20,84,57,129,123,150,69,108,183,
 /**
  * Checks for max possible profits of a given stock price history
  * - only one transaction is possible
+ * - solution flaw: checks only the max profit from "x-price to max-price"; if "min-price to y-price" or "x-price to to y-price" are more profitable it won't take that into account
  * @param prices 
  * @returns max
  */
