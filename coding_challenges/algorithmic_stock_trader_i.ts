@@ -34,30 +34,36 @@ Determine the maximum possible profit you can earn using at most one transaction
 */
 
 let stockPricesI = [43,65,133,117,15,102,17,187,20,84,57,129,123,150,69,108,183,186,75,191];
+let stockPricesI_test = [43,65,133,117,15,102,17,187,287,20,84,57,129,123,150,69,108,183,186,75,191];
 
 /**
  * Checks for max possible profits of a given stock price history
  * - only one transaction is possible
  * 
  * @param prices 
- * @returns max
+ * @returns {Object} Transaction
+ * { buyIndex : number, buyPrice: number, sellIndex: number, sellPrice : number, profit : number }
  */
 function algoTraderI (prices:number[]) {
-    let maxProfit = 0;
-    let increasePeriods = []
-    let increaseData = {}
-    // a)  create stock price increase periods
-    // TODOS:
+    // defining new Transaction type
+        // Transaction holds profit, buy/sell values and their responding index
+    type Transaction = { [key:string]: number}; // you just define that there is a key and a number value, but not which one
+    // Defining array of Transatcion type
+    let increasePeriods: Transaction[] = [];
+    // defining object of Transaction type
+    let increaseData : Transaction = {}
+ 
+    // FIXME:
     /**
-     * - does not work for ongoing increases as [43,65,133]
      * - does not work for last increase [75,191] => 116
-     * - add profit to increase element
      */
 
+    // looping through array to detect the periods of increasing prices
     for (let i = 1; i < prices.length; i++) {
-        // prices are increasing
-        if (prices[i] > prices[i-1]){
-            if (Object.keys(increaseData).length === 0) { // start of an increase period
+        // a) looking at increasing prices
+        if (prices[i] > prices[i-1]){ 
+            // it's the start of increase or...
+            if (Object.keys(increaseData).length === 0) { 
                 increaseData = {
                     "buyIndex" : i-1,
                     "buyPrice": prices[i-1],
@@ -65,32 +71,31 @@ function algoTraderI (prices:number[]) {
                     "sellPrice" : prices[i],
                     "profit" : prices[i] - prices[i-1]
                 }
-            } else { // increase period goes on
-                //FIXME How can I do that instead the one below
-                //increaseData.sellIndex = i;
-                //increaseData.sellPrice = prices[i];
-                //increaseDatea.profit = (increaseData.sellPrice - increaseData.buyPrice)
-                
+            //... the increase goes on 
+            } else { 
+                increaseData.sellIndex = i;
+                increaseData.sellPrice = prices[i];
+                increaseData.profit = (increaseData.sellPrice - increaseData.buyPrice)
             }
-        // prices are decreasing
-        // FIXME Not sure what you did there yet...
-        } else if (Object.keys(increaseData).length === 0){ // 
-            
-            
-        } else { // this is the end of an increasing period; save the old one
-            increasePeriods.push(increaseData)
-            increaseData = {}
+        // b) prices decline again
+        } else {
+            increasePeriods.push(increaseData) // save transaction to increasePeriods
+            increaseData = {} // reset transaction
         }
     }
-    console.log(increasePeriods)
+    
+    console.log(increasePeriods) // just for testing
 
     // b) filter increase periods by max profit & return it
     let sortedProfit = increasePeriods.sort((a, b)=> (a.profit < b.profit) ? 1 : -1)
-    maxProfit = sortedProfit[0].profit;
-    return maxProfit
+    return sortedProfit[0];
 }
 
-console.log(algoTraderI(stockPricesI))
+// Solution
+console.log(`SOLUTION : There is a max profit of "${algoTraderI(stockPricesI).profit}" if you buy at ${algoTraderI(stockPricesI).buyPrice} and sell at ${algoTraderI(stockPricesI).sellPrice}`)
+
+// TEST 
+//console.log(`TEST: There is a max profit of "${algoTraderI(stockPricesI_test).profit}"" if you buy at ${algoTraderI(stockPricesI_test).buyPrice} and sell at ${algoTraderI(stockPricesI_test).sellPrice}`)
 
 
 
