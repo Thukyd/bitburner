@@ -13,6 +13,12 @@ Determine the maximum possible profit you can earn using at most one transaction
 
 let stockPricesI = [43,65,133,117,15,102,17,187,20,84,57,129,123,150,69,108,183,186,75,191];
 
+/**
+ * Checks for max possible profits of a given stock price history
+ * - only one transaction is possible
+ * @param prices 
+ * @returns max
+ */
 function algoTraderI (prices:number[]) {
     let maxProfit = 0;
 
