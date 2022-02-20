@@ -52,14 +52,9 @@ function algoTraderI (prices:number[]) {
     let increasePeriods: Transaction[] = [];
     // defining object of Transaction type
     let increaseData : Transaction = {}
- 
-    // FIXME:
-    /**
-     * - does not work for last increase [75,191] => 116
-     */
 
     // looping through array to detect the periods of increasing prices
-    for (let i = 1; i < prices.length; i++) {
+    for (let i = 1; i < prices.length + 1; i++) {
         // a) looking at increasing prices
         if (prices[i] > prices[i-1]){ 
             // it's the start of increase or...
@@ -83,8 +78,7 @@ function algoTraderI (prices:number[]) {
             increaseData = {} // reset transaction
         }
     }
-    
-    console.log(increasePeriods) // just for testing
+    //console.log(increasePeriods) // just for testing
 
     // b) filter increase periods by max profit & return it
     let sortedProfit = increasePeriods.sort((a, b)=> (a.profit < b.profit) ? 1 : -1)
