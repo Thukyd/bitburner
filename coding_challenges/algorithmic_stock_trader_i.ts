@@ -18,7 +18,7 @@ Determine the maximum possible profit you can earn using at most one transaction
 /* 
     Problem with Version 1: checks only the max profit from "x-price to max-price"; if "min-price to y-price" or "x-price to to y-price" are more profitable it won't take that into account
 
-    TODO: fix flaw by implementing a way to check for price periods and get the most profitable one
+    Taks: fix flaw by implementing a way to check for price periods and get the most profitable one
     
     Logic: 
         [43,65,133] => 90
@@ -44,26 +44,50 @@ let stockPricesI = [43,65,133,117,15,102,17,187,20,84,57,129,123,150,69,108,183,
  */
 function algoTraderI (prices:number[]) {
     let maxProfit = 0;
+    let increasePeriods = []
+    let increaseData = {}
+    // a)  create stock price increase periods
+    // TODOS:
+    /**
+     * - does not work for ongoing increases as [43,65,133]
+     * - does not work for last increase [75,191] => 116
+     * - add profit to increase element
+     */
 
-
-
-    // sort frome min to max price
-    let sortedPrices =  prices.sort((a, b) => (a > b) ? 1 : -1);
-    // create array for direct manipulation
-    let checkArr = [...sortedPrices]; 
-    // check max profit from X to max_price
-    for (let i = 0; i < sortedPrices.length; i++) {
-        let min = checkArr[i]
-        let max = checkArr[checkArr.length - 1]
-
-        if (prices.indexOf(min) < prices.indexOf(max)){
-            maxProfit = max - min;
-            break;
+    for (let i = 1; i < prices.length; i++) {
+        // prices are increasing
+        if (prices[i] > prices[i-1]){
+            if (Object.keys(increaseData).length === 0) { // start of an increase period
+                increaseData = {
+                    "buyIndex" : i-1,
+                    "buyPrice": prices[i-1],
+                    "sellIndex": i,
+                    "sellPrice" : prices[i],
+                    "profit" : prices[i] - prices[i-1]
+                }
+            } else { // increase period goes on
+                //FIXME How can I do that instead the one below
+                //increaseData.sellIndex = i;
+                //increaseData.sellPrice = prices[i];
+                //increaseDatea.profit = (increaseData.sellPrice - increaseData.buyPrice)
+                
+            }
+        // prices are decreasing
+        // FIXME Not sure what you did there yet...
+        } else if (Object.keys(increaseData).length === 0){ // 
+            
+            
+        } else { // this is the end of an increasing period; save the old one
+            increasePeriods.push(increaseData)
+            increaseData = {}
         }
     }
-    return maxProfit
+    console.log(increasePeriods)
 
-    
+    // b) filter increase Periods by Max Profit & return it
+    let sortedProfit = increasePeriods.sort((a, b)=> (a.profit < b.profit) ? 1 : -1)
+    maxProfit = sortedProfit[0].profit;
+    return maxProfit
 }
 
 console.log(algoTraderI(stockPricesI))
