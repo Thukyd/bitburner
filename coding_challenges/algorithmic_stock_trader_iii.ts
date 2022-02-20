@@ -24,6 +24,12 @@ let stockPricesIII = [31,168,178,42,80,152,109,22,152,109,16,184,164,32,37,151,3
  */
 function algoTraderIII (prices:number[]) {
     let maxProfit = 0;
+    // find the two biggest non-inersecting increase period in the price array
+
+    // a) create a hash map (index, price) sort by increasing price
+
+    // b) find the biggest profit periods
+        // find a better answer in algorithmic_stock_trader_i to solve this problem
 
 
     return maxProfit
