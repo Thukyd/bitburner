@@ -84,7 +84,7 @@ function algoTraderI (prices:number[]) {
     }
     console.log(increasePeriods)
 
-    // b) filter increase Periods by Max Profit & return it
+    // b) filter increase periods by max profit & return it
     let sortedProfit = increasePeriods.sort((a, b)=> (a.profit < b.profit) ? 1 : -1)
     maxProfit = sortedProfit[0].profit;
     return maxProfit
