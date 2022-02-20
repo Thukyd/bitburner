@@ -16,6 +16,12 @@ If no profit can be made, then the answer should be 0
 
 let stockPricesIII = [31,168,178,42,80,152,109,22,152,109,16,184,164,32,37,151,35,122,54,33,68,162,5,72,112,101,120,5,75,100];
 
+/**
+ * Checks for max possible profits of a given stock price history
+ * - two possible transactions
+ * @param prices 
+ * @returns max
+ */
 function algoTraderIII (prices:number[]) {
     let maxProfit = 0;
 
