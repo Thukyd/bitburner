@@ -90,11 +90,16 @@ function arrayOfOnes (num:number) {
     return arr
 } 
 
-
+/**
+ * //TODO
+ * @param num 
+ */
 function waysToSum (num:number) {
     let arr = arrayOfOnes(num);
     let countWays = 0;
     console.log(arr.length)
+
+    // TODO
 
     for (let i = 0; i < arr.length; i++) {
         // sum up always from left to right
@@ -104,7 +109,7 @@ function waysToSum (num:number) {
                 // 3 + 2 + 1  => still works
             // otherwise
                 // ...
-
+    
 
     }
 
