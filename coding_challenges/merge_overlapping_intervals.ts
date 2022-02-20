@@ -19,7 +19,11 @@ The intervals must be returned in ASCENDING order. You can assume that in an int
 
 */
 
-
+/**
+ * Takes an array of array of numbers and merges overlapping intervals
+ * @param matrix 
+ * @returns overlapping-free array of array numbers
+ */
 function mergeOverlappingIntervals (matrix:number[][]) {
     // a) sort inner array by 0 of index
     matrix.sort((a,b) => a[0] - b[0])

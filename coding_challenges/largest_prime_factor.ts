@@ -23,6 +23,11 @@ So the result is 2 * 2 * 19
 
  */
 
+/**
+ * Checks if given num is a prime
+ * @param num 
+ * @returns bool
+ */
 function isPrime(num:number) {
     for (let i = 2; i * i <= num; i++)
         if (num % i === 0)
@@ -30,6 +35,11 @@ function isPrime(num:number) {
     return true;
 }
 
+/**
+ * Checks the max prime factor of a given num
+ * @param num 
+ * @returns max prime factor
+ */
 function primeFactor (num:number) {
     let prime = 1;
     let largestFactor = 2; // 2 is a minimum
