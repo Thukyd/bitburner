@@ -73,6 +73,7 @@ function algoTraderI (prices:number[]) {
                 increaseData.profit = (increaseData.sellPrice - increaseData.buyPrice)
             }
         // b) prices decline again
+// BUG: See Bugfix in AlgoTrader III
         } else {
             increasePeriods.push(increaseData) // save transaction to increasePeriods
             increaseData = {} // reset transaction

@@ -16,6 +16,7 @@ If no profit can be made, then the answer should be 0
 
 let stockPricesIII = [31,168,178,42,80,152,109,22,152,109,16,184,164,32,37,151,35,122,54,33,68,162,5,72,112,101,120,5,75,100];
 
+
 /**
  * Checks for max possible profits of a given stock price history
  * - two possible transactions
@@ -23,74 +24,59 @@ let stockPricesIII = [31,168,178,42,80,152,109,22,152,109,16,184,164,32,37,151,3
  * @returns max
  */
 function algoTraderIII (prices:number[]) {
-    let maxProfit = 0;
-    // find the two biggest non-inersecting increase period in the price array
+    // defining new Transaction type
+        // Transaction holds profit, buy/sell values and their responding index
+     type Transaction = { [key:string]: number}; // you just define that there is a key and a number value, but not which one
+    // Defining array of Transatcion type
+    let increasePeriods: Transaction[] = [];
+    // defining object of Transaction type
+    let increaseData : Transaction = {}
 
-    // a) create a hash map (index, price) sort by increasing price
+    
 
-    // b) find the biggest profit periods
-        // find a better answer in algorithmic_stock_trader_i to solve this problem
 
+    // looping through array to detect the periods of increasing prices
+    for (let i = 1; i < prices.length + 1; i++) {
+        // a) looking at increasing prices
+        if (prices[i] > prices[i-1]){ 
+            // it's the start of increase or...
+            if (Object.keys(increaseData).length === 0) { 
+                increaseData = {
+                    "buyIndex" : i-1,
+                    "buyPrice": prices[i-1],
+                    "sellIndex": i,
+                    "sellPrice" : prices[i],
+                    "profit" : prices[i] - prices[i-1]
+                }
+            //... the increase goes on 
+            } else { 
+                increaseData.sellIndex = i;
+                increaseData.sellPrice = prices[i];
+                increaseData.profit = (increaseData.sellPrice - increaseData.buyPrice)
+            }
+        // b) prices decline again
+        } else {
+//FIXME: BUG Es fehlt eine Variante 
+            // der Bug tritt bei 192 mit dem Index 6 auf
+// TODO: Nach dem Fix auch bei Aufgabe 1 fixen
+            increasePeriods.push(increaseData) // save transaction to increasePeriods
+            increaseData = {} // reset transaction
+        }
+    }
+    console.log(increasePeriods) // just for testing
+
+    let twoMostProfitableTrades = increasePeriods.sort((a, b) => (a.profit < b.profit) ? 1 : -1)
+    
+    //console.log(twoMostProfitableTrades)
+
+    //console.log(`1st : There is a max profit of "${twoMostProfitableTrades[0].profit}" if you buy at ${twoMostProfitableTrades[0].buyPrice} and sell at ${twoMostProfitableTrades[0].sellPrice}`)
+    //console.log(`2nd : There is a max profit of "${twoMostProfitableTrades[1].profit}" if you buy at ${twoMostProfitableTrades[1].buyPrice} and sell at ${twoMostProfitableTrades[1].sellPrice}`)
+    
+    let maxProfit = twoMostProfitableTrades[0].profit + twoMostProfitableTrades[1].profit
 
     return maxProfit
 }
 
 
-console.log(`The max profit is : ${algoTraderIII(stockPricesIII)}`)
+console.log(`SOLUTION : There is a max profit of "${algoTraderIII(stockPricesIII)}"`)
 
-
-
-
-///////////
-// Deprecated ...
-
-/*
-
-
-// try get max profit using to transactions (2 x Buying; 2 selling)
-// caluculate max profit 
-    // find the the peaks and lows
-        // low peak low peak ==> do it that way
-        // low low peak peak ==> go with biggest win
-        // low peak peak low => 
-        // peak low low peak => 
-    // you should always calculate from right to left
-
-function findMax (prices:number[]) {
-    return Math.max(...prices)
-}
-
-function findMin(prices:number[]) {
-    return Math.min(...prices)
-}
-
-console.log(findMax(stockPrices))
-console.log(findMin(stockPrices))
-
-let indexOfMax = stockPrices.indexOf(42);
-
-console.log(indexOfMax)
-
-
-
-///////////
-
-
-function biggestProfit(stockHistory:number[]) {
-    /// create a hash structure to store {index, value}; 
-        // see also: https://www.youtube.com/watch?v=F95z5Wxd9ks
-    let result = stockHistory.map((value, index) =>  (value, index));
-    console.log(result)
-        
-    
-  
-    // sort by value
-    // check the longest path
-        // check if index of low_price is smaller than index of high_price => if yes => this transaction ist possible
-
-    return 1
-} 
-
-console.log(biggestProfit(stockPrices))
-
-*/
