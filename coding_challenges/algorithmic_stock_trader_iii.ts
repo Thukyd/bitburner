@@ -14,7 +14,26 @@ Determine the maximum possible profit you can earn using at most two transaction
 If no profit can be made, then the answer should be 0
 */
 
-let stockPrices = [31,168,178,42,80,152,109,22,152,109,16,184,164,32,37,151,35,122,54,33,68,162,5,72,112,101,120,5,75,100];
+let stockPricesIII = [31,168,178,42,80,152,109,22,152,109,16,184,164,32,37,151,35,122,54,33,68,162,5,72,112,101,120,5,75,100];
+
+function algoTraderIII (prices:number[]) {
+    let maxProfit = 0;
+
+
+    return maxProfit
+}
+
+
+console.log(`The max profit is : ${algoTraderIII(stockPricesIII)}`)
+
+
+
+
+///////////
+// Deprecated ...
+
+/*
+
 
 // try get max profit using to transactions (2 x Buying; 2 selling)
 // caluculate max profit 
@@ -62,3 +81,4 @@ function biggestProfit(stockHistory:number[]) {
 
 console.log(biggestProfit(stockPrices))
 
+*/
