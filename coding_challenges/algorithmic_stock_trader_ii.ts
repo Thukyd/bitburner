@@ -16,14 +16,6 @@ If no profit can be made, then the answer should be 0
 
 let stockPricesII = [159,3,172,44,161,77,80,76,50,108,81,43,114,154,34,191,97,140,53,4,33,151,98,181];
 
-// find the maximum incline => 15 - 191
-
-// FIXME still version of before
-    // now you can do as many transactions as you like
-    // you can't sell before buying
-// TODO:
-    // check for each increasing trend
-    // add the distance as max profit
 function algoTraderII (prices:number[]) {
     let maxProfit = 0;
 
@@ -35,8 +27,6 @@ function algoTraderII (prices:number[]) {
     }
     return maxProfit
 }
-
-
 
 console.log(`The max profit is : ${algoTraderII(stockPricesII)}`)
 /** Expected buying periods

@@ -13,8 +13,6 @@ Determine the maximum possible profit you can earn using at most one transaction
 
 let stockPricesI = [43,65,133,117,15,102,17,187,20,84,57,129,123,150,69,108,183,186,75,191];
 
-// find the maximum incline => 15 - 191
-
 function algoTraderI (prices:number[]) {
     let maxProfit = 0;
 
@@ -34,7 +32,5 @@ function algoTraderI (prices:number[]) {
     }
     return maxProfit
 }
-
-
 
 console.log(algoTraderI(stockPricesI))
