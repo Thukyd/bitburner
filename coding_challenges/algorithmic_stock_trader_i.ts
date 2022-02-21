@@ -35,7 +35,7 @@ Determine the maximum possible profit you can earn using at most one transaction
 
 let stockPricesI = [43,65,133,117,15,102,17,187,20,84,57,129,123,150,69,108,183,186,75,191];
 let stockPricesI_testI = [43,65,133,117,15,102,17,187,287,20,84,57,129,123,150,69,108,183,186,75,191];
-let stockPricesI_testII = [0, 10, 20, 30, 40 , 50, 45, 35, 25, 15];
+let stockPricesI_testII = [0, 10, 20, 30, 40 , 50, 45, 35, 25, 15, 200, 20, 2000];
 
 
 /**
@@ -57,7 +57,6 @@ function algoTraderI (prices:number[]) {
 
     // looping through array to detect the periods of increasing prices
     for (let i = 1; i < prices.length + 1; i++) {
-        console.log(`If ${prices[i]} > ${prices[i-1]}`)
         // a) looking at increasing prices
         if (prices[i] > prices[i-1]){ 
             // it's the start of increase or...
@@ -75,9 +74,8 @@ function algoTraderI (prices:number[]) {
                 increaseData.sellPrice = prices[i];
                 increaseData.profit = (increaseData.sellPrice - increaseData.buyPrice)
             }
-        // b) prices decline again
-// BUG: See Bugfix in AlgoTrader III
-        } else {
+        // b) prices decline again  
+        } else if(increaseData.profit) { // only push profitable transactions
             increasePeriods.push(increaseData) // save transaction to increasePeriods
             increaseData = {} // reset transaction
         }
@@ -90,12 +88,12 @@ function algoTraderI (prices:number[]) {
 }
 
 // Solution
-//let solution = algoTraderI(stockPricesI)
-//console.log(`SOLUTION : There is a max profit of "${solution.profit}" if you buy at ${solution.buyPrice} and sell at ${solution.sellPrice}`)
+let solution = algoTraderI(stockPricesI)
+console.log(`SOLUTION : There is a max profit of "${solution.profit}" if you buy at ${solution.buyPrice} and sell at ${solution.sellPrice}`)
 
 // TEST 
-//let testI = algoTraderI(stockPricesI_testI)
-//console.log(`TEST: There is a max profit of "${testI.profit}"" if you buy at ${testI.buyPrice} and sell at ${testI.sellPrice}`)
+let testI = algoTraderI(stockPricesI_testI)
+console.log(`TEST: There is a max profit of "${testI.profit}"" if you buy at ${testI.buyPrice} and sell at ${testI.sellPrice}`)
 
 // TEST II
 let testII = algoTraderI(stockPricesI_testII)
