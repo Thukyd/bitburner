@@ -34,7 +34,9 @@ Determine the maximum possible profit you can earn using at most one transaction
 */
 
 let stockPricesI = [43,65,133,117,15,102,17,187,20,84,57,129,123,150,69,108,183,186,75,191];
-let stockPricesI_test = [43,65,133,117,15,102,17,187,287,20,84,57,129,123,150,69,108,183,186,75,191];
+let stockPricesI_testI = [43,65,133,117,15,102,17,187,287,20,84,57,129,123,150,69,108,183,186,75,191];
+let stockPricesI_testII = [0, 10, 20, 30, 40 , 50, 45, 35, 25, 15];
+
 
 /**
  * Checks for max possible profits of a given stock price history
@@ -55,6 +57,7 @@ function algoTraderI (prices:number[]) {
 
     // looping through array to detect the periods of increasing prices
     for (let i = 1; i < prices.length + 1; i++) {
+        console.log(`If ${prices[i]} > ${prices[i-1]}`)
         // a) looking at increasing prices
         if (prices[i] > prices[i-1]){ 
             // it's the start of increase or...
@@ -87,10 +90,16 @@ function algoTraderI (prices:number[]) {
 }
 
 // Solution
-console.log(`SOLUTION : There is a max profit of "${algoTraderI(stockPricesI).profit}" if you buy at ${algoTraderI(stockPricesI).buyPrice} and sell at ${algoTraderI(stockPricesI).sellPrice}`)
+//let solution = algoTraderI(stockPricesI)
+//console.log(`SOLUTION : There is a max profit of "${solution.profit}" if you buy at ${solution.buyPrice} and sell at ${solution.sellPrice}`)
 
 // TEST 
-//console.log(`TEST: There is a max profit of "${algoTraderI(stockPricesI_test).profit}"" if you buy at ${algoTraderI(stockPricesI_test).buyPrice} and sell at ${algoTraderI(stockPricesI_test).sellPrice}`)
+//let testI = algoTraderI(stockPricesI_testI)
+//console.log(`TEST: There is a max profit of "${testI.profit}"" if you buy at ${testI.buyPrice} and sell at ${testI.sellPrice}`)
+
+// TEST II
+let testII = algoTraderI(stockPricesI_testII)
+console.log(`TEST: There is a max profit of "${testII.profit}"" if you buy at ${testII.buyPrice} and sell at ${testII.sellPrice}`) 
 
 
 
