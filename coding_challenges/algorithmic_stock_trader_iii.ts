@@ -25,15 +25,12 @@ let stockPricesIII = [31,168,178,42,80,152,109,22,152,109,16,184,164,32,37,151,3
  */
 function algoTraderIII (prices:number[]) {
     // defining new Transaction type
-        // Transaction holds profit, buy/sell values and their responding index
-     type Transaction = { [key:string]: number}; // you just define that there is a key and a number value, but not which one
+    // Transaction holds profit, buy/sell values and their responding index
+    type Transaction = { [key:string]: number}; // you just define that there is a key and a number value, but not which one
     // Defining array of Transatcion type
     let increasePeriods: Transaction[] = [];
     // defining object of Transaction type
     let increaseData : Transaction = {}
-
-    
-
 
     // looping through array to detect the periods of increasing prices
     for (let i = 1; i < prices.length + 1; i++) {
@@ -54,29 +51,34 @@ function algoTraderIII (prices:number[]) {
                 increaseData.sellPrice = prices[i];
                 increaseData.profit = (increaseData.sellPrice - increaseData.buyPrice)
             }
-        // b) prices decline again
-        } else {
-//FIXME: BUG Es fehlt eine Variante 
-            // der Bug tritt bei 192 mit dem Index 6 auf
-// TODO: Nach dem Fix auch bei Aufgabe 1 fixen
+        // b) prices decline again  
+        } else if(increaseData.profit) { // only push profitable transactions
             increasePeriods.push(increaseData) // save transaction to increasePeriods
             increaseData = {} // reset transaction
         }
     }
-    console.log(increasePeriods) // just for testing
+    //console.log(increasePeriods) // just for testing
 
     let twoMostProfitableTrades = increasePeriods.sort((a, b) => (a.profit < b.profit) ? 1 : -1)
     
-    //console.log(twoMostProfitableTrades)
+    console.log(twoMostProfitableTrades)
 
-    //console.log(`1st : There is a max profit of "${twoMostProfitableTrades[0].profit}" if you buy at ${twoMostProfitableTrades[0].buyPrice} and sell at ${twoMostProfitableTrades[0].sellPrice}`)
-    //console.log(`2nd : There is a max profit of "${twoMostProfitableTrades[1].profit}" if you buy at ${twoMostProfitableTrades[1].buyPrice} and sell at ${twoMostProfitableTrades[1].sellPrice}`)
+    console.log(`1st : There is a max profit of "${twoMostProfitableTrades[0].profit}" if you buy at ${twoMostProfitableTrades[0].buyPrice} and sell at ${twoMostProfitableTrades[0].sellPrice}`)
+    console.log(`2nd : There is a max profit of "${twoMostProfitableTrades[1].profit}" if you buy at ${twoMostProfitableTrades[1].buyPrice} and sell at ${twoMostProfitableTrades[1].sellPrice}`)
     
     let maxProfit = twoMostProfitableTrades[0].profit + twoMostProfitableTrades[1].profit
 
     return maxProfit
 }
 
+/*
+    Expected solution = 315
 
+    [31,168,178,42,80,152,109,22,152,109,16,184,164,32,37,151,35,122,54,33,68,162,5,72,112,101,120,5,75,100]
+
+    1st: 184 - 16 = 168
+    2nd: 178 - 31 = 174
+    Profit 1st & 2nd = 168 + 174 = 315
+*/
 console.log(`SOLUTION : There is a max profit of "${algoTraderIII(stockPricesIII)}"`)
 
