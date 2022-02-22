@@ -14,7 +14,9 @@ Determine the maximum possible profit you can earn using at most two transaction
 If no profit can be made, then the answer should be 0
 */
 
-let stockPricesIII = [31,168,178,42,80,152,109,22,152,109,16,184,164,32,37,151,35,122,54,33,68,162,5,72,112,101,120,5,75,100];
+let stockPricesIIIa = [31,168,178,42,80,152,109,22,152,109,16,184,164,32,37,151,35,122,54,33,68,162,5,72,112,101,120,5,75,100];
+
+let stockPricesIIIb = [100,190,188,56,99,116,149,199,189,179,28,60,138,134,49,19,177,149];
 
 
 /**
@@ -61,7 +63,7 @@ function algoTraderIII (prices:number[]) {
 
     let twoMostProfitableTrades = increasePeriods.sort((a, b) => (a.profit < b.profit) ? 1 : -1)
     
-    console.log(twoMostProfitableTrades)
+    //console.log(twoMostProfitableTrades)
 
     console.log(`1st : There is a max profit of "${twoMostProfitableTrades[0].profit}" if you buy at ${twoMostProfitableTrades[0].buyPrice} and sell at ${twoMostProfitableTrades[0].sellPrice}`)
     console.log(`2nd : There is a max profit of "${twoMostProfitableTrades[1].profit}" if you buy at ${twoMostProfitableTrades[1].buyPrice} and sell at ${twoMostProfitableTrades[1].sellPrice}`)
@@ -80,5 +82,8 @@ function algoTraderIII (prices:number[]) {
     2nd: 178 - 31 = 174
     Profit 1st & 2nd = 168 + 174 = 315
 */
-console.log(`SOLUTION : There is a max profit of "${algoTraderIII(stockPricesIII)}"`)
+console.log(`SOLUTION A: There is a max profit of "${algoTraderIII(stockPricesIIIa)}"\n`)
+
+
+console.log(`SOLUTION B: There is a max profit of "${algoTraderIII(stockPricesIIIb)}"\n`)
 
