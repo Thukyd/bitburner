@@ -73,13 +73,14 @@ function primeFactor (num:number) {
 
 let examplePrimeFactor1 = 76 // = 2 * 2 * 19 = 2^2 * 19
 let examplePrimeFactor2 = 21 // = 3 * 7
-let taskPrimeFactor = 705067794
+let taskPrimeFactorA = 705067794
+let taskPrimeFactorB = 529099074
 
 
-
-console.log(`The largest prime factor for ${21} is ${primeFactor(21)}`)
-console.log(`The largest prime factor for ${76} is ${primeFactor(76)}`)
-console.log(`The largest prime factor for ${705067794} is ${primeFactor(705067794)}`)
+//console.log(`The largest prime factor for ${21} is ${primeFactor(21)}`)
+//console.log(`The largest prime factor for ${76} is ${primeFactor(76)}`)
+console.log(`A: The largest prime factor for ${taskPrimeFactorA} is ${primeFactor(taskPrimeFactorA)}`)
+console.log(`B: The largest prime factor for ${taskPrimeFactorB} is ${primeFactor(taskPrimeFactorB)}`)
 
 
 
