@@ -10,3 +10,15 @@ NOTE: The data returned for this contract is an array with the number of rows an
 
 [10, 2]
  */
+
+/*
+    How many many unique paths are there from start to finish?
+
+    let columnsA = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    let columnsB = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+    ==> smells recursive to me...
+
+*/
+
