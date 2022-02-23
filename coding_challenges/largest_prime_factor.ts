@@ -81,6 +81,3 @@ let taskPrimeFactorB = 529099074
 //console.log(`The largest prime factor for ${76} is ${primeFactor(76)}`)
 console.log(`A: The largest prime factor for ${taskPrimeFactorA} is ${primeFactor(taskPrimeFactorA)}`)
 console.log(`B: The largest prime factor for ${taskPrimeFactorB} is ${primeFactor(taskPrimeFactorB)}`)
-
-
-
