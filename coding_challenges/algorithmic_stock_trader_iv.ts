@@ -20,8 +20,7 @@ let test:[number, number[]] = [6, [1, 2, 1, 2, 1, 2, 12, 12, 12, 323, 2, 2, 323,
 
 
 /**
- * - Checks for max possible profits of a given stock price history
- * 
+ * - Checks for max possible profits of a given stock price history 
  * @param orderSheet The first element is an integer k. The second element is an array of stock prices (which are numbers) where the i-th element represents the stock price on day i. 
  * @returns max
  */
@@ -31,6 +30,8 @@ let test:[number, number[]] = [6, [1, 2, 1, 2, 1, 2, 12, 12, 12, 323, 2, 2, 323,
     
     // defining new Transaction type
     // Transaction holds profit, buy/sell values and their responding index
+        // you only need profit to solve this task, but if you want to get a better understanding how it works & debug it
+        // it's useful to add index and prices to the structure as well.
     type Transaction = { [key:string]: number}; // you just define that there is a key and a number value, but not which one
     // Defining array of Transatcion type
     let increasePeriods: Transaction[] = [];
