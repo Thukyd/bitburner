@@ -17,6 +17,9 @@ If no profit can be made, then the answer should be 0.
 
 let stockPricesIVa = [6, [197,47,28,191,198,129,117,82,171]];
 
+// TODO: Add variables as single objects instead of pushing the whole array
+// write it as a seperate function
+
 
 
 /**
@@ -25,10 +28,7 @@ let stockPricesIVa = [6, [197,47,28,191,198,129,117,82,171]];
  * @param orderSheet The first element is an integer k. The second element is an array of stock prices (which are numbers) where the i-th element represents the stock price on day i. 
  * @returns max
  */
- function algoTraderIV (orderSheet:(number)[][]) {
-    let prices = orderSheet[1];
-    let max_orders = orderSheet[0];
-
+ function algoTraderIV (transactions:number, prices:number[]) {
     
     // defining new Transaction type
     // Transaction holds profit, buy/sell values and their responding index
@@ -79,4 +79,27 @@ let stockPricesIVa = [6, [197,47,28,191,198,129,117,82,171]];
 }
 
 
-console.log(`SOLUTION : There is a max profit of "${algoTraderIV(stockPricesIVa)}"`)
+
+/**
+ * changes the weired array structure to clean obj
+ * @param orderSheet 
+ * @returns 
+ */
+ function arrToObj (orderSheet:[number, number[]]) {
+    //return orderSheet[0]
+    //return {"max_orders": orderSheet[0], "prices" : orderSheet[1]}
+}
+
+///////////////////////// TEST below
+
+// clean up horrible array structure
+let SolutionObjA = arrToObj(stockPricesIVa);
+//let max_orders = SolutionObjA.max_orders;
+//let price_history = SolutionObjA.prices;
+
+//console.log(max_orders)
+
+///////////////////////// TEST above
+
+console.log(`SOLUTION : There is a max profit of "${algoTraderIV(max_orders, price_history)}"`)
+
