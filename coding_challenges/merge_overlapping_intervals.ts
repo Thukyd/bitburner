@@ -60,6 +60,8 @@ console.log(mergeOverlappingIntervals(testArray))
 
 let taskArray = [[17,23],[2,7],[3,11],[10,14],[24,25],[18,19],[18,27],[5,10],[9,17],[15,22],[12,13],[22,26],[6,15],[2,4]];
 let taskArray2 = [[17,23],[4,8],[9,13],[18,25],[17,20],[15,17],[15,22],[25,33],[11,13],[16,20],[25,27]]
+let taskArray3 = [[1,7],[13,22],[1,6],[16,19],[6,11],[17,20],[21,28],[15,16],[8,9],[8,13],[1,3],[14,18],[18,24],[25,29],[17,23],[3,6],[25,31]]
 
 console.log(mergeOverlappingIntervals(taskArray))
 console.log(mergeOverlappingIntervals(taskArray2))
+console.log(mergeOverlappingIntervals(taskArray3))
