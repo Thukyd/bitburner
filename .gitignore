@@ -1,6 +1,7 @@
 # Workspace
 bitburner-workspace.code-workspace
 .vs-code
+.vscode
 
 # Logs
 logs
